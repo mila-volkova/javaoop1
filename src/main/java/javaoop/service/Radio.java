@@ -3,9 +3,22 @@ package javaoop.service;
 public class Radio {
     private int tunedStation;
     private int currentVolume;
+    private int maxStation;
+
+    public Radio() {
+        this.maxStation = 9;
+    }
+
+
+
+
+    public Radio (int numberOfStation) {
+        this.maxStation = numberOfStation - 1;
+    }
+
 
     public void next() {
-        if (tunedStation != 9) {
+        if (tunedStation != maxStation ) {
             tunedStation++;
         } else {
             tunedStation = 0;
@@ -16,7 +29,7 @@ public class Radio {
         if (tunedStation != 0) {
             tunedStation--;
         } else {
-            tunedStation = 9;
+            tunedStation = maxStation ;
         }
     }
 
@@ -28,7 +41,7 @@ public class Radio {
         if (tunedStation < 0) {
             return;
         }
-        if (tunedStation > 9) {
+        if (tunedStation > maxStation ) {
             return;
         }
 

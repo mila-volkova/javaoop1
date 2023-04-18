@@ -7,10 +7,13 @@ public class RadioTest {
 
     @Test
     public void tunedStationNextMinTest() {
+
         Radio radio = new Radio();
-        radio.setTunedStation(0);
+
+
+        radio.setTunedStation(9);
         radio.next();
-        int expected = 1;
+        int expected = 0;
         int actual = radio.getTunedStation();
         Assertions.assertEquals(expected, actual);
 
@@ -96,9 +99,9 @@ public class RadioTest {
 
     @Test
     public void tunedStationAverageTest() {
-        Radio radio = new Radio();
-        radio.setTunedStation(5);
-        int expected = 5;
+        Radio radio = new Radio(30);
+        radio.setTunedStation(15);
+        int expected = 15;
         int actual = radio.getTunedStation();
         Assertions.assertEquals(expected, actual);
 
@@ -106,7 +109,7 @@ public class RadioTest {
 
     @Test
     public void tunedStationMinTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(30);
         radio.setTunedStation(0);
         int expected = 0;
         int actual = radio.getTunedStation();
@@ -116,7 +119,7 @@ public class RadioTest {
 
     @Test
     public void tunedStationBoundaryTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(30);
         radio.setTunedStation(1);
         int expected = 1;
         int actual = radio.getTunedStation();
@@ -126,9 +129,9 @@ public class RadioTest {
 
     @Test
     public void tunedStationBoundaryTest1() {
-        Radio radio = new Radio();
-        radio.setTunedStation(8);
-        int expected = 8;
+        Radio radio = new Radio(30);
+        radio.setTunedStation(28);
+        int expected = 28;
         int actual = radio.getTunedStation();
         Assertions.assertEquals(expected, actual);
 
@@ -136,9 +139,9 @@ public class RadioTest {
 
     @Test
     public void tunedStationMaxTest1() {
-        Radio radio = new Radio();
-        radio.setTunedStation(9);
-        int expected = 9;
+        Radio radio = new Radio(30);
+        radio.setTunedStation(29);
+        int expected = 29;
         int actual = radio.getTunedStation();
         Assertions.assertEquals(expected, actual);
 
@@ -146,8 +149,8 @@ public class RadioTest {
 
     @Test
     public void tunedStationOverseasTest() {
-        Radio radio = new Radio();
-        radio.setTunedStation(12);
+        Radio radio = new Radio(30);
+        radio.setTunedStation(40);
         int expected = 0;
         int actual = radio.getTunedStation();
         Assertions.assertEquals(expected, actual);
@@ -156,7 +159,7 @@ public class RadioTest {
 
     @Test
     public void tunedStationOverseasTest1() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(30);
         radio.setTunedStation(-3);
         int expected = 0;
         int actual = radio.getTunedStation();
